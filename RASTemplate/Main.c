@@ -56,17 +56,25 @@ int main(void) {
 
 		//Line Following Code:
 		
-		else if(ADCRead(line3) < .700){
+		else if(ADCRead(line2) > .700){
+		   SetMotor(servoLeft,-1);
+		   SetMotor(servoRight,1);
+		}
+		else if(ADCRead(line1) > .700){
 		   SetMotor(servoLeft,0);
 		   SetMotor(servoRight,-.25);
 		}
-		else if(ADCRead(line1) < .700){
+		else if(ADCRead(line3) > .700){
 		   SetMotor(servoLeft,.25);
 		   SetMotor(servoRight,0);
 		}
+		/*else if(ADCRead(line1) > .700 && ADCRead(line2) > .700 && ADCRead(line3) > .700 ){
+		   SetMotor(servoRight,0);
+		   SetMotor(servoLeft,0);		
+		}*/
 		else{
-		   SetMotor(servoRight,-.25);
-		   SetMotor(servoLeft,.25);		
+		   SetMotor(servoLeft, 0.75);
+		   SetMotor(servoRight,0);
 		}
 
 
